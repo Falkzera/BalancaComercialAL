@@ -43,11 +43,11 @@ st.markdown("""
         </ul>
         <p>O projeto foi dividido em duas etapas:</p>
         <ol>
-            <li><strong>Extração e Filtragem da Base de Dados:</strong> 
+            <li><strong>Extração e filtragem da base de dados:</strong> 
                 <p>Na primeira etapa, foi realizada a extração da base de dados do Governo Federal, contendo informações sobre as exportações do Brasil. Inicialmente, a base possuía <strong>20.139.345</strong> linhas. Utilizando a linguagem de programação Python e a biblioteca Pandas, a base foi filtrada para incluir apenas os dados referentes ao estado de Alagoas.</p>
                 <p>Como a base de dados original não incluía o nome dos municípios, foi necessário cruzar os dados com uma outra base para identificar a origem das exportações e os parceiros comerciais.</p>
             </li>
-            <li><strong>Criação da Interface Gráfica:</strong>
+            <li><strong>Criação da interface gráfica:</strong>
                 <p>Na segunda etapa, foi desenvolvida uma interface gráfica interativa com a biblioteca Streamlit. Esta interface permite ao usuário:</p>
                 <ul>
                     <li>Selecionar o município, ano e mês desejados</li>

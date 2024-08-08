@@ -10,12 +10,12 @@ Produtos exportados
 Municípios exportadores
 O projeto foi dividido em duas etapas:
 
-Extração e Filtragem da Base de Dados:
+Extração e filtragem da base de dados:
 Na primeira etapa, foi realizada a extração da base de dados do Governo Federal, contendo informações sobre as exportações do Brasil. Inicialmente, a base possuía 20.139.345 linhas. Utilizando a linguagem de programação Python e a biblioteca Pandas, a base foi filtrada para incluir apenas os dados referentes ao estado de Alagoas.
 
 Como a base de dados original não incluía o nome dos municípios, foi necessário cruzar os dados com uma outra base para identificar a origem das exportações e os parceiros comerciais.
 
-Criação da Interface Gráfica:
+Criação da interface gráfica:
 Na segunda etapa, foi desenvolvida uma interface gráfica interativa com a biblioteca Streamlit. Esta interface permite ao usuário:
 
 Selecionar o município, ano e mês desejados
