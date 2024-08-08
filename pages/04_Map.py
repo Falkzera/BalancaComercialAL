@@ -27,32 +27,32 @@ st.session_state['df'] = df
 st.title('Análise geral das exportações - Alagoas')
 st.caption('**Fonte**: Governo Federal')
 
-# Carregar o arquivo GeoJSON dos municípios de Alagoas
-geojson_path = 'mapa/Alagoas_Mapa.geojson'  # Substitua pelo caminho do seu arquivo GeoJSON
+# Geojson com os municípios de Alagoas
+geojson_path = 'mapa/Alagoas_Mapa.geojson' 
 with open(geojson_path) as f:
     geojson = json.load(f)
 
-# Extrair os nomes dos municípios do GeoJSON
+# Lista de municípios
 municipios_geojson = [feature['properties']['NM_MUN'] for feature in geojson['features']]
 
-# Definir uma lista de temas
+# Temas disponíveis
 temas = ['Blues', 'Cividis', 'Plasma', 'Inferno', 'Magma']
 
-# Criar um menu suspenso com alguns temas
+# Filtro de Tema
 tema_selecionado = st.sidebar.selectbox('Selecione o tema do mapa:', temas)
 
 # Filtro de Data
-ano_inicial = df['CO_ANO'].min()  # Fixar a data inicial no último ano disponível
+ano_inicial = df['CO_ANO'].min() 
 anos_disponiveis = df['CO_ANO'].unique()
 ano_final = st.sidebar.slider('Selecione a data final:', min_value=ano_inicial, max_value=anos_disponiveis.max(), value=ano_inicial)
 
-# Filtrar os dados com base nos filtros de data
+# Filtrar os dados com base no intervalo de anos selecionado
 df_filtrado = df[(df['CO_ANO'] >= ano_inicial) & (df['CO_ANO'] <= ano_final)]
 
 # Agrupar os dados por município e somar os valores
 df_filtrado = df_filtrado.groupby('Nome_Município').sum().reset_index()
 
-# Garantir que todos os municípios estejam presentes no DataFrame
+# Criar um DataFrame completo com todos os municípios e valores zerados
 df_completo = pd.DataFrame(municipios_geojson, columns=['Nome_Município'])
 df_completo = df_completo.merge(df_filtrado, on='Nome_Município', how='left').fillna(0)
 
@@ -62,13 +62,13 @@ valor_minimo = 0
 # Slider para o valor máximo com legenda "Valor em US$"
 valor_maximo = st.sidebar.slider(
     'Valor em US$:',
-    min_value=float(df_completo['VL_FOB'].min()),  # Valor mínimo do slider é o valor mínimo dos dados
-    max_value=float(df_completo['VL_FOB'].max()) + 1_000_000,  # Valor máximo do slider é 1 milhão acima do máximo dos dados
-    value=float(df_completo['VL_FOB'].mean()) + 1_000_000,  # Valor inicial do slider
+    min_value=float(df_completo['VL_FOB'].min()),  
+    max_value=float(df_completo['VL_FOB'].max()) + 1_000_000,  
+    value=float(df_completo['VL_FOB'].mean()) + 1_000_000,  
     format="$%.0f"  # Formato dos valores do slider
 )
 
-# Exibir o valor formatado
+# Mostrar o valor máximo selecionado
 st.sidebar.write(f'Valor Selecionado: {format_value(valor_maximo)}')
 
 
@@ -82,7 +82,7 @@ def make_choropleth(input_df, geojson, input_id, input_column, input_color_theme
         input_df,
         geojson=geojson,
         locations=input_id,
-        featureidkey="properties.NM_MUN",  # Ajuste aqui para corresponder à chave correta no seu GeoJSON
+        featureidkey="properties.NM_MUN",
         color=input_column,
         color_continuous_scale=input_color_theme,
         range_color=(valor_minimo, valor_maximo),
@@ -99,13 +99,13 @@ def make_choropleth(input_df, geojson, input_id, input_column, input_color_theme
     return choropleth
 
 # Parâmetros para a função
-input_id = 'Nome_Município'  # Nome da coluna no DataFrame com os nomes dos municípios
-input_column = 'VL_FOB'     # Nome da coluna no DataFrame com os valores
+input_id = 'Nome_Município'  
+input_column = 'VL_FOB'   
 
-# Gerar o choropleth com os dados completos e o tema selecionado
+# Mapa coroplético
 choropleth_fig = make_choropleth(df_completo, geojson, input_id, input_column, tema_selecionado, valor_minimo, valor_maximo)
 
-# Exibir o choropleth usando Streamlit
+# Mostrar o mapa
 st.plotly_chart(choropleth_fig)
 
 
