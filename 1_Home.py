@@ -7,7 +7,7 @@ file = 'SerieExportacoesAL.csv'
 df = pd.read_csv(file)
 
 # Layout da Página
-st.set_page_config()
+st.set_page_config(layout='wide', page_title='Exportações em Alagoas - Análise de Dados :bar_chart:')
 
 # Títulos
 st.title('Exportações em Alagoas')

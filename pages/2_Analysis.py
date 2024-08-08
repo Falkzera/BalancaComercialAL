@@ -11,7 +11,7 @@ df = pd.read_csv(file)
 st.session_state['df'] = df
 
 # Layout da Página
-st.set_page_config(layout='wide')
+st.set_page_config(layout='wide', page_title='Analysis :bar_chart:')
 
 # Títulos
 st.title('Análise geral das exportações - Alagoas')
