@@ -151,7 +151,7 @@ with st.sidebar:
         <a href="https://github.com/falkzera" target="_blank">
             <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub" style="width:40px;height:40px;margin:10px;">
         </a>
-        <p style="text-align: justify;">Developer by: <a href="https://GitHub.com/Falkzera" target="_blank">Lucas Falcão</a></p>
+        <p style="text-align: center;">Developer by: <a href="https://GitHub.com/Falkzera" target="_blank">Lucas Falcão</a></p>
     </div>
     """
     st.markdown(social_media_html, unsafe_allow_html=True)
