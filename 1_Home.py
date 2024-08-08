@@ -7,7 +7,7 @@ file = 'SerieExportacoesAL.csv'
 df = pd.read_csv(file)
 
 # Layout da Página
-st.set_page_config(layout='wide', page_title='Exportações em Alagoas - Análise de Dados :bar_chart:')
+st.set_page_config(layout='centered', page_title='Exportações em Alagoas - Análise de Dados :bar_chart:')
 
 # Títulos
 st.title('Exportações em Alagoas')
@@ -26,12 +26,11 @@ with st.sidebar:
         <a href="https://github.com/falkzera" target="_blank">
             <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub" style="width:40px;height:40px;margin:10px;">
         </a>
+        <p style="text-align: justify;">Developer by: <a href="https://GitHub.com/Falkzera" target="_blank">Lucas Falcão</a></p>
     </div>
     """
     st.markdown(social_media_html, unsafe_allow_html=True)
-
-    # st.lottie(assets['foguete'], height=200, speed=10)
-    st.sidebar.markdown('Developer by: [Lucas Falcão](https://GitHub.com/Falkzera)')
+    
 
 st.subheader("Sobre o Projeto 🎯")
 
@@ -61,6 +60,5 @@ st.markdown("""
         <p>O projeto foi desenvolvido por <strong>Lucas Falcão</strong>, estudante de Ciências Econômicas da Universidade Federal de Alagoas. Para mais informações, visite o <a href="https://github.com/Falkzera" target="_blank">perfil do desenvolvedor no GitHub</a>.</p>
     </div>
 """, unsafe_allow_html=True)
-
 
 
