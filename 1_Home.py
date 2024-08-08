@@ -7,7 +7,7 @@ file = 'SerieExportacoesAL.csv'
 df = pd.read_csv(file)
 
 # Layout da Página
-st.set_page_config(layout='centered', page_title='Exportações em Alagoas - Análise de Dados :bar_chart:')
+st.set_page_config(layout='centered', page_title='Exportações em Alagoas', page_icon='House')
 
 # Títulos
 st.title('Exportações em Alagoas')
@@ -16,7 +16,6 @@ st.caption('**Fonte**: Governo Federal')
 
 # Configurações da Barra Lateral
 with st.sidebar:
-    st.markdown('---')
     social_media_html = """
     <div style="text-align: center;">
         <h2>Redes Sociais</h2>

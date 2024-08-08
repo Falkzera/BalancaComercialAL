@@ -10,11 +10,10 @@ df = pd.read_csv(file)
 st.session_state['df'] = df
 
 # Layout da Página
-st.set_page_config(layout='wide', page_title='Metrics :bar_chart:')
+st.set_page_config(layout='wide', page_title='Metrics', page_icon='📊')
 
 # Títulos
 st.title('Análise geral das exportações - Alagoas')
-st.subheader('Uma série história: 1997 - 2024')
 st.caption('**Fonte**: Governo Federal')
 
 # Seletores de filtro
@@ -35,6 +34,11 @@ else:
     df_filtrado = df[(df['CO_ANO'] == ano_selecionado) & 
                      (df['CO_MES'] == mes_selecionado) & 
                      (df['Nome_Município'] == municipio_selecionado)]
+
+# Mostrar por escrito o que foi selecionado
+st.write(f'**Município**: {municipio_selecionado}')
+st.write(f'**Ano**: {ano_selecionado}')
+st.write(f'**Mês**: {mes_selecionado}')
 
 # Verificando se o DataFrame filtrado está vazio
 if df_filtrado.empty:
