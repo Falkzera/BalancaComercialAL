@@ -71,7 +71,6 @@ valor_maximo = st.sidebar.slider(
 # Mostrar o valor máximo selecionado
 st.sidebar.write(f'Valor Selecionado: {format_value(valor_maximo)}')
 
-
 # Mostrar para o usuario o periodo que ele escolheu
 st.subheader(f'**Período Selecionado**: {ano_inicial} - {ano_final}')
 st.write(f'**Valor Filtrado**: {format_value(valor_maximo)}')
@@ -87,7 +86,7 @@ def make_choropleth(input_df, geojson, input_id, input_column, input_color_theme
         color_continuous_scale=input_color_theme,
         range_color=(valor_minimo, valor_maximo),
         scope="south america",
-        labels={input_column: 'Valor'}
+        labels={input_column: 'Valor'},
     )
     choropleth.update_geos(fitbounds="locations", visible=False)
     choropleth.update_layout(
