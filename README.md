@@ -20,7 +20,7 @@ Para rodar o projeto localmente, certifique-se de ter o **Python 3.x** instalado
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/Falkzera/ExportacoesAL.git
+   git clone https://github.com/Falkzera/BalancaComercialAL.git
    cd exportacoes-importacoes-alagoas
 
 2. Instale as bibliotecas necessárias:
@@ -50,7 +50,7 @@ Para rodar o projeto localmente, certifique-se de ter o **Python 3.x** instalado
 
 # 🚀 Experimente o Dashboard Online
 Acesse a versão online do dashboard clicando no link abaixo:
-[DashBoard](https://exportacoesal.streamlit.app/)
+[DashBoard](https://balancacomercialal.streamlit.app/)
 
 # 📚 Recursos Adicionais
 - Fonte: Governo Federal - Dados Abertos Comex Stat
